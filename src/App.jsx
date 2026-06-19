@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div style={{ maxWidth: "400px", margin: "100px auto", fontFamily: "Arial" }}>
-      <h1>Formulario simple</h1>
+      <h1>Formulario BETA NARCIS JUDIT</h1>
 
       {enviado ? (
         <p>✅ ¡Hola, {nombre}! Formulario enviado correctamente.</p>
