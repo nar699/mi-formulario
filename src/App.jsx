@@ -5,14 +5,18 @@ function App() {
   const [nombre, setNombre] = useState("")
   const [enviado, setEnviado] = useState(false)
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    
-    // Aquí más adelante llamaremos a tu .NET
-    // Por ahora solo mostramos el nombre
-    console.log("Nombre enviado:", nombre)
-    setEnviado(true)
-  }
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  const respuesta = await fetch("https://mi-proyecto-production-a43a.up.railway.app/api/formulario", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ nombre: nombre, email: email })
+  });
+  
+  const datos = await respuesta.json();
+  console.log(datos);
+};
 
   return (
     <div style={{ maxWidth: "400px", margin: "100px auto", fontFamily: "Arial" }}>
